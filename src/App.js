@@ -7,6 +7,14 @@ import Weather from './components/Weather';
 const API_KEY = 'a0566e095cd90afd26c1dc52103ca1d0';
 
 class App extends Component {
+  state = {
+    temperature: null,
+    city: null,
+    country: null,
+    humidity: null,
+    description: null,
+    error: null
+  };
 
   getWeather = async (event) => {
     event.preventDefault();
@@ -16,9 +24,22 @@ class App extends Component {
 
     const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
     .then(data => data.json());
-    // console.log(apiCall);
-    return apiCall;
-  }
+
+    if ( city && country  ) {
+      this.setState({
+        temperature: apiCall.main.temp,
+        city: apiCall.name,
+        country: apiCall.sys.country,
+        humidity: apiCall.main.humidity,
+        description: apiCall.weather[0].description,
+        error: ''
+      });
+    } else {
+      this.setState({
+        error: apiCall.message
+      });
+    }
+}
 
 
   render() {
@@ -26,7 +47,7 @@ class App extends Component {
       <div className="App">
         <Titles />
         <Form getWeather={this.getWeather} />
-        <Weather />
+        <Weather details={this.state} />
       </div>
     );
   }
