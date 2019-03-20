@@ -1,6 +1,7 @@
 # react-weather-app
+* [Preview](https://valeria38.github.io/react-todo-list/)  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://valeria38.github.io/react-weather-app/).
 
 ## Available Scripts
 
