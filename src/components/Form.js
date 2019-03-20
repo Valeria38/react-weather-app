@@ -4,13 +4,15 @@ const Form = (props) => {
   const { getWeather } = props;
 
   return (
-    <>
+    <div className="Form">
       <form onSubmit={getWeather}>
-        <input type="text" name="city" placeholder="City" />
-        <input type="text" name="country" placeholder="Country" />
+        <div>
+          <input type="text" name="city" placeholder="City" />
+          <input type="text" name="country" placeholder="Country / country abbr" />
+        </div>
         <button>Get weather!</button>
       </form>
-    </>
+    </div>
   )
 }
 

@@ -3,6 +3,8 @@ import './App.css';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import COUNTRY_CODES from './country_codes';
+
 
 const API_KEY = 'a0566e095cd90afd26c1dc52103ca1d0';
 
@@ -16,16 +18,31 @@ class App extends Component {
     error: null
   };
 
+  searchCountryCode = (countryName) => {
+    if (countryName.length === 2) {
+      return countryName;
+    }
+
+    const result = Object.values(COUNTRY_CODES).filter(country => {
+      return country.toLowerCase() === countryName.toLowerCase()
+    });
+
+    const code = Object.entries(COUNTRY_CODES).filter(array => array[1] === result[0])[0][0];
+    return code;
+  }
+
   getWeather = async (event) => {
     event.preventDefault();
 
     const city = event.target.elements.city.value;
     const country = event.target.elements.country.value;
 
-    const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
+    const countryCode = this.searchCountryCode(country);
+
+    const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${API_KEY}&units=metric`)
     .then(data => data.json());
 
-    if ( city && country  ) {
+    if ( city && country && apiCall.name ) {
       this.setState({
         temperature: apiCall.main.temp,
         city: apiCall.name,

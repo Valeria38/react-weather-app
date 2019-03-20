@@ -1,1 +1,66 @@
+.App {
+  margin:20px auto;
+  width: 900px;
+  border: 1px solid silver;
+}
+.Titles {
+  float:left;
+  width: 410px;
+  height: 460px;
+  text-align: center;
+  padding:20px;
+  color: rgb(30, 54, 100);
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  background: url(http://www.radiosignal.rs/wp-content/uploads/2018/01/snega.jpg) no-repeat 70% 40%;
+}
+
+.Form {
+  float:right;
+  width: 410px;
+  height:150px;
+  padding: 20px;
+  background: #333;
+}
+.Form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Form form div {
+  margin:20px;
+}
+.Form button {
+  width: 100px;
+  height: 28px;
+  margin:0 20px;
+  background: royalblue;
+  color: lightblue;
+  border:none;
+  border-radius: 5px;
+}
+.Form input {
+  border:none;
+  border-bottom:2px solid cornflowerblue;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: lightblue;
+  background: #333;
+}
+.Form input:first-child {
+  margin-right: 10px;
+}
+.Weather {
+  width: 410px;
+  padding:20px;
+  height: 270px;
+  float:right;
+  text-align: center;
+  color: lightgray;
+  background: #333;
+}
+
 
