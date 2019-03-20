@@ -23,8 +23,12 @@ class App extends Component {
       return countryName;
     }
 
+    if (!countryName) {
+      return 1;
+    }
+
     const result = Object.values(COUNTRY_CODES).filter(country => {
-      return country.toLowerCase() === countryName.toLowerCase()
+      return country.toLowerCase() === countryName.toLowerCase();
     });
 
     const code = Object.entries(COUNTRY_CODES).filter(array => array[1] === result[0])[0][0];
@@ -34,12 +38,17 @@ class App extends Component {
   getWeather = async (event) => {
     event.preventDefault();
 
-    const city = event.target.elements.city.value;
-    const country = event.target.elements.country.value;
+    const city = event.target.elements.city;
+    const cityValue = city.value;
+    const country = event.target.elements.country;
+    const countryValue = country.value;
 
-    const countryCode = this.searchCountryCode(country);
+    city.value = "";
+    country.value = "";
+    
+    const countryCode = this.searchCountryCode(countryValue);
 
-    const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${API_KEY}&units=metric`)
+    const apiCall = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryCode}&appid=${API_KEY}&units=metric`)
     .then(data => data.json());
 
     if ( city && country && apiCall.name ) {
@@ -57,7 +66,6 @@ class App extends Component {
       });
     }
 }
-
 
   render() {
     return (
