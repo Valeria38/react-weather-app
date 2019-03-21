@@ -16,7 +16,7 @@ const Weather = (props) => {
       <div>
         <p>Location: {city}, {country}</p>
         <p>Temperature: {temperature}</p>
-        <p>Humidity: {humidity}</p>
+        <p>Humidity: {humidity} %</p>
         <p>Conditions: {description}</p>
       </div> }
       { error && error.toUpperCase() }

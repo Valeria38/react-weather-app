@@ -8,7 +8,7 @@ const Form = (props) => {
       <form onSubmit={getWeather}>
         <div>
           <input type="text" name="city" placeholder="City" />
-          <input type="text" name="country" placeholder="Country / country abbr" />
+          <input type="text" name="country" placeholder="Country" />
         </div>
         <button>Get weather!</button>
       </form>

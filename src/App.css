@@ -8,15 +8,23 @@
   height: 460px;
   text-align: center;
   padding:20px;
-  text-shadow: 10px 15px 10px #fff;
+  text-shadow: 20px 20px 5px #fff;
   display: flex;
   color:#1E3664;
   flex-direction:column;
   justify-content: flex-end;
-  background: url(http://www.radiosignal.rs/wp-content/uploads/2018/01/snega.jpg) no-repeat 70% 40%;
+  background: url(https://www.radiosignal.rs/wp-content/uploads/2018/01/snega.jpg) no-repeat 70% 40%;
 }
 .Titles h1 {
   font-size: 38px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, rgb(37, 83, 151));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0B2349;
+  display: table;
+  margin: 20px auto;
+  text-shadow: none;
 }
 .Titles p {
   margin-bottom:60px;
@@ -72,20 +80,19 @@
 }
 
 @media screen and (max-width: 800px) {
+  .App {
+    width: 100%;
+  }
   .Titles, .Form, .Weather {
     float:none;
-    width: 800px;
-    height:400px;
+    height: 300px;
     margin: 0 auto;
   }
-  .Titles {
-    font-size:24px;
-  }
   .Titles h1 {
-    font-size:56px;
+    font-size:50px;
   }
   .Titles p {
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     margin-top: 0px;
   }
@@ -93,7 +100,7 @@
     height:220px;
   }
   .Form form > div {
-    width: 700px;
+    width: 400px;
   }
   .Form input {
     width: 44%;
@@ -102,8 +109,9 @@
     font-size:30px;
   }
   .Form button {
-    width: 30%;
-    height:50px;
+    margin-top:20px;
+    width: 50%;
+    height:70px;
     line-height:50px;
     font-size: 30px;
   }
